@@ -1,4 +1,4 @@
-FROM lscr.io/linuxserver/webtop:alpine
+FROM lscr.io/linuxserver/webtop:latest
 
 ENV PUID=1000 \
     PGID=1000 \

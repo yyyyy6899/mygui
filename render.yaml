@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: webtop-512mb
+    runtime: docker
+    plan: starter
+
+    env:
+      - key: PUID
+        value: 1000
+      - key: PGID
+        value: 1000
+      - key: TZ
+        value: Etc/UTC
+
+      # Browser & runtime memory limits
+      - key: CHROME_FLAGS
+        value: --disable-dev-shm-usage --js-flags=--max-old-space-size=128
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=128
+
+    disk:
+      name: webtop-data
+      mountPath: /config
+      sizeGB: 10

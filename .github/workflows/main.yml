@@ -1,0 +1,19 @@
+name: 🐞 Debug with tmate
+
+on:
+  workflow_dispatch:   # Manual trigger only
+  push:
+    branches:
+      - main
+
+jobs:
+  debug:
+    name: SSH Debug Session
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧰 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🔐 Set up tmate session
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 30
